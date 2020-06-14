@@ -4,7 +4,7 @@ import GlobalStyles from './GlobalStyles';
 import WishContext from './WishContext';
 
 class App extends Component {
-    state = {lang: 'en', wish: ['ab']};
+    state = {wish: ['ab'], test: new Map()};
   render() {
     return (
         <>
