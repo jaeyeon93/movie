@@ -9,6 +9,7 @@ export default class extends React.Component {
             upcoming: null,
             error: null,
             loading: true,
+            wish: [],
         };
     }
 

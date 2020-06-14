@@ -17,8 +17,8 @@ const HomePresenter = ({upcoming, loading, error}) => loading ? null : (
         <Container>
             {upcoming && upcoming.length > 0 && (
                 <Section title="Upcoming">
-                    {upcoming.map(movie => (
-                        <PosterContainer movie={movie}/>
+                    {upcoming.map((movie, idx) => (
+                        <PosterContainer key={idx} movie={movie}/>
                     ))}
                 </Section>
             )}
