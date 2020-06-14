@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, createContext} from 'react';
 import Router from './Router';
 import GlobalStyles from './GlobalStyles';
 
@@ -8,6 +8,7 @@ class App extends Component {
         <>
           <Router />
           <GlobalStyles />
+
         </>
     )
   }

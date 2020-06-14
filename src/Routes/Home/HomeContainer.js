@@ -9,7 +9,6 @@ export default class extends React.Component {
             upcoming: null,
             error: null,
             loading: true,
-            wish: [],
         };
     }
 
@@ -34,9 +33,9 @@ export default class extends React.Component {
     };
 
     render() {
-        const { upcoming, error, loading, wish } = this.state;
+        const { upcoming, error, loading } = this.state;
         return (
-            <HomePresender upcoming={upcoming} error={error} loading={loading} wish={wish} />
+            <HomePresender upcoming={upcoming} error={error} loading={loading} />
         );
     };
 }

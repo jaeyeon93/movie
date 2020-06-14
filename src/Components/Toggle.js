@@ -15,7 +15,7 @@ const Button = styled.button`
 class Toggle extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {isToggleOn: true};
+        this.state = {isToggleOn: null};
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -25,10 +25,16 @@ class Toggle extends React.Component {
         }));
     }
 
+    test() {
+        if (this.state.isToggleOn)
+            console.log(`${JSON.stringify(this.props)}`);
+    }
+
     render() {
         return (
             <Button onClick={this.handleClick}>
                 {this.state.isToggleOn ? 'Like' : 'UnLike'}
+                {this.state.isToggleOn ? this.test() : 'UnLike'}
             </Button>
         )
     }
