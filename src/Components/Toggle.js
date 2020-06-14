@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from "react-redux";
 import styled from "styled-components";
 
 const Button = styled.button`
@@ -31,6 +32,7 @@ class Toggle extends React.Component {
     }
 
     render() {
+
         return (
             <Button onClick={this.handleClick}>
                 {this.state.isToggleOn ? 'Like' : 'UnLike'}
