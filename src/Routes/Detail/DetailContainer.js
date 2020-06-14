@@ -17,14 +17,23 @@ export default class extends React.Component {
         const parseId = parseInt(id);
         if (isNaN(parseId))
             return push('/');
+        let result = null;
+        try {
+            const request = await movieApi.movieDetail(id);
+            result = request.data;
+        } catch (e) {
+            this.setState({error: `Can't not find movie detail`});
+        } finally {
+            this.setState({loading: false, result});
+        }
 
-        const temp = await movieApi.movieDetail(id);
     }
 
     render() {
         const { result, error, loading } = this.state;
+        console.log(this.state.result);
         return (
-            <DetailPresenter result={result} error={error} loading={false} />
+            <DetailPresenter result={result} error={error} loading={loading} />
         );
     };
 }
