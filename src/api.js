@@ -9,7 +9,6 @@ const upcomingParams = {
     language: `en-US`
 };
 
-const upcommingMovie = async () => await api.get(`movie/upcoming`, {params: upcomingParams});
-upcommingMovie();
-
-export default api;
+export const movieApi = {
+    upcoming: async () => await api.get(`movie/upcoming`, {params: upcomingParams})
+};
