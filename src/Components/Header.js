@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import styled from 'styled-components';
+import WishContext from './WishContext';
+
 const Header = styled.header`
     color:white;
     position: fixed;
@@ -23,7 +25,7 @@ const List = styled.ul`
 
 const Item = styled.li`
     width: 80px;
-    height: 50px
+    height: 50px;
     text-align: center;
     border-bottom: 5px solid ${props => (props.current ? "#3498db" : "transparent")};
     transition: border-bottom 0.5s ease-in-out;
@@ -37,6 +39,7 @@ const SLink = styled(Link)`
 `;
 
 export default withRouter(({location: {pathname}}) => (
+    <WishContext.Consumer>
     <Header>
         <List>
             <Item current={pathname === "/"}>
@@ -48,6 +51,12 @@ export default withRouter(({location: {pathname}}) => (
             <Item current={pathname === "/watchlist"}>
                 <SLink to="/watchlist">Watch List</SLink>
             </Item>
+            <Item>
+                {(lang) => {
+                    const text = lang === 'en' ? 'Context' : '컨텍스트';
+                }};
+            </Item>
         </List>
     </Header>
+    </WishContext.Consumer>
 ));
