@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Section from '../../Components/Section';
 import Message from '../../Components/Message';
 import Poster from '../../Components/Poster';
+import PosterContainer from '../../Components/PosterContainer';
 
 const Container = styled.div`
     padding: 20px;
@@ -17,14 +18,7 @@ const HomePresenter = ({upcoming, loading, error}) => loading ? null : (
             {upcoming && upcoming.length > 0 && (
                 <Section title="Upcoming">
                     {upcoming.map(movie => (
-                        <Poster
-                            key={movie.id}
-                            id={movie.id}
-                            title={movie.original_title}
-                            imageUrl={movie.poster_path}
-                            rating={movie.vote_average}
-                            year={movie.release_date}
-                        />
+                        <PosterContainer movie={movie}/>
                     ))}
                 </Section>
             )}

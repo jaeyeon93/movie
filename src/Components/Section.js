@@ -20,12 +20,12 @@ const Grid = styled.div`
     grid-gap: 25px;
 `;
 
-
-
 const Section = ({title, children}) => (
     <Container>
         <Title>{title}</Title>
-        <Grid>{children}</Grid>
+        <Grid>
+            {children}
+        </Grid>
     </Container>
 
 );
