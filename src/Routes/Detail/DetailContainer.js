@@ -1,8 +1,9 @@
 import React from 'react';
 import DetailPresenter from './DetailPresenter';
 import {movieApi} from "../../api";
+import WishContext from '../../Components/WishContext';
 
-export default class extends React.Component {
+class DetailContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -31,9 +32,13 @@ export default class extends React.Component {
 
     render() {
         const { result, error, loading } = this.state;
-        console.log(this.state.result);
+        console.log(`context on DetailContainer ${JSON.stringify(this.context)}`);
         return (
             <DetailPresenter result={result} error={error} loading={loading} />
         );
     };
 }
+
+DetailContainer.contextType = WishContext;
+
+export default DetailContainer;

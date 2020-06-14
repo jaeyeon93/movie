@@ -4,19 +4,11 @@ import GlobalStyles from './GlobalStyles';
 import WishContext from './WishContext';
 
 class App extends Component {
-    state = {lang: 'en'};
-
-    toggleLang = () => {
-        this.setState(({lang}) => ({
-            lang: lang === 'en' ? 'ko' : 'change'
-        }))
-    };
-
+    state = {lang: 'en', wish: ['ab']};
   render() {
-      const {lang} = this.state;
     return (
         <>
-        <WishContext.Provider value={lang}>
+        <WishContext.Provider value={this.state}>
           <Router />
           <GlobalStyles />
         </WishContext.Provider>

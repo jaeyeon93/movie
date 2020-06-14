@@ -1,8 +1,9 @@
 import React from 'react';
 import HomePresender from './HomePresenter';
 import {movieApi} from "../../api";
+import WishContext from '../../Components/WishContext';
 
-export default class extends React.Component {
+class HomeContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -34,8 +35,15 @@ export default class extends React.Component {
 
     render() {
         const { upcoming, error, loading } = this.state;
+        console.log(`context on HomeContainer ${JSON.stringify(this.context)}`);
         return (
-            <HomePresender upcoming={upcoming} error={error} loading={loading} />
+            <>
+                <HomePresender upcoming={upcoming} error={error} loading={loading} />
+            </>
         );
     };
 }
+
+HomeContainer.contextType = WishContext;
+
+export default HomeContainer;

@@ -7,7 +7,7 @@ import Header from './Header';
 export default () => (
     <Router>
         <>
-        <Header />
+            <Header />
         <Switch>
             <Route path="/" exact component={Home} />
             {/*<Route path="/upcoming" component={Upcoming} />*/}

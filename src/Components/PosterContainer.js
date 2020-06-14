@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Poster from "./Poster";
 import Toggle from './Toggle';
+
 const Container = styled.div``;
 
 const PosterContainer = ({movie}) => (

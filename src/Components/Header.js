@@ -39,7 +39,6 @@ const SLink = styled(Link)`
 `;
 
 export default withRouter(({location: {pathname}}) => (
-    <WishContext.Consumer>
     <Header>
         <List>
             <Item current={pathname === "/"}>
@@ -51,12 +50,6 @@ export default withRouter(({location: {pathname}}) => (
             <Item current={pathname === "/watchlist"}>
                 <SLink to="/watchlist">Watch List</SLink>
             </Item>
-            <Item>
-                {(lang) => {
-                    const text = lang === 'en' ? 'Context' : '컨텍스트';
-                }};
-            </Item>
         </List>
     </Header>
-    </WishContext.Consumer>
 ));
