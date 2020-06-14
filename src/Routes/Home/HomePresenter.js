@@ -11,12 +11,13 @@ const Container = styled.div`
     padding: 20px;
 `;
 
-const HomePresenter = ({upcoming, loading, error}) => loading ? null : (
+const HomePresenter = ({upcoming, loading, error, wish}) => loading ? null : (
     <>
         <Helmet><title>Movies</title></Helmet>
         <Container>
+            {console.log(`presenter : ${typeof wish}`)}
             {upcoming && upcoming.length > 0 && (
-                <Section title="Upcoming">
+                <Section title="Upcoming" wish={wish}>
                     {upcoming.map((movie, idx) => (
                         <PosterContainer key={idx} movie={movie}/>
                     ))}
@@ -30,7 +31,8 @@ const HomePresenter = ({upcoming, loading, error}) => loading ? null : (
 HomePresenter.propTypes = {
     upcoming: PropTypes.array,
     loading: PropTypes.bool.isRequired,
-    error: PropTypes.string
+    error: PropTypes.string,
+    wish: PropTypes.array,
 };
 
 export default HomePresenter;
