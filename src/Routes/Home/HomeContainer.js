@@ -16,6 +16,7 @@ export default class extends React.Component {
     async componentDidMount() {
         try {
             console.log(await movieApi.upcoming());
+            console.log(await movieApi.movieDetail(514847));
             const {data: {results: upcoming}} = await movieApi.upcoming();
             this.setState({
                 upcoming
