@@ -9,6 +9,7 @@ export default class extends React.Component {
             upcoming: null,
             error: null,
             loading: true,
+            wish: [],
         };
     }
 
@@ -27,15 +28,15 @@ export default class extends React.Component {
             });
         } finally {
             this.setState({
-                loading: false
+                loading: false,
             });
         };
     };
 
     render() {
-        const { upcoming, error, loading } = this.state;
+        const { upcoming, error, loading, wish } = this.state;
         return (
-            <HomePresender upcoming={upcoming} error={error} loading={loading} />
+            <HomePresender upcoming={upcoming} error={error} loading={loading} wish={wish} />
         );
     };
 }

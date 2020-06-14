@@ -20,12 +20,13 @@ const Grid = styled.div`
     grid-gap: 25px;
 `;
 
-
-
-const Section = ({title, children}) => (
+const Section = ({title, children, wish}) => (
     <Container>
         <Title>{title}</Title>
-        <Grid>{children}</Grid>
+        <Grid>
+            {children}
+        </Grid>
+        {console.log(`wish ${wish}`)}
     </Container>
 
 );
