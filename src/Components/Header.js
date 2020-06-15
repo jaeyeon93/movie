@@ -46,9 +46,6 @@ export default withRouter(({location: {pathname}}) => (
             <Item current={pathname === "/watchlist"}>
                 <SLink to="/watchlist">Watch List</SLink>
             </Item>
-            <Item current={pathname === "/upcoming"}>
-                <SLink to="/upcoming">Upcoming</SLink>
-            </Item>
         </List>
     </Header>
 ));

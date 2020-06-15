@@ -11,7 +11,6 @@ export default () => (
             <Header />
         <Switch>
             <Route path="/" exact component={Home} />
-            {/*<Route path="/upcoming" component={Upcoming} />*/}
             <Route path="/watchlist" component={WatchList} />
             <Route path="/movie/:id" component={Detail} />
             <Redirect from="*" to="/" />
