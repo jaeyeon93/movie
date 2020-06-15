@@ -20,15 +20,13 @@ const Grid = styled.div`
     grid-gap: 25px;
 `;
 
-const Section = ({title, children, wish}) => (
+const Section = ({title, children}) => (
     <Container>
         <Title>{title}</Title>
         <Grid>
             {children}
         </Grid>
-        {console.log(`wish ${wish}`)}
     </Container>
-
 );
 
 Section.propTypes = {

@@ -4,20 +4,18 @@ import Helmet from 'react-helmet';
 import styled from 'styled-components';
 import Section from '../../Components/Section';
 import Message from '../../Components/Message';
-import Poster from '../../Components/Poster';
 import PosterContainer from '../../Components/PosterContainer';
 
 const Container = styled.div`
     padding: 20px;
 `;
 
-const HomePresenter = ({upcoming, loading, error, wish}) => loading ? null : (
+const HomePresenter = ({upcoming, loading, error}) => loading ? null : (
     <>
         <Helmet><title>Movies</title></Helmet>
         <Container>
-            {console.log(`presenter : ${typeof wish}`)}
             {upcoming && upcoming.length > 0 && (
-                <Section title="Upcoming" wish={wish}>
+                <Section title="Upcoming">
                     {upcoming.map((movie, idx) => (
                         <PosterContainer key={idx} movie={movie}/>
                     ))}
@@ -32,7 +30,6 @@ HomePresenter.propTypes = {
     upcoming: PropTypes.array,
     loading: PropTypes.bool.isRequired,
     error: PropTypes.string,
-    wish: PropTypes.array,
 };
 
 export default HomePresenter;

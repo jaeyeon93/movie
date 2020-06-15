@@ -2,18 +2,16 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 import Home from '../Routes/Home';
 import Detail from '../Routes/Detail';
-import Upcoming from 'Routes/Upcoming';
-import WatchList from 'Routes/WatchList';
 import Header from './Header';
+import WatchList from '../Routes/WatchList';
 
 export default () => (
     <Router>
         <>
-        <Header />
+            <Header />
         <Switch>
             <Route path="/" exact component={Home} />
-            {/*<Route path="/upcoming" component={Upcoming} />*/}
-            {/*<Route path="/watchlist" component={WatchList} />*/}
+            <Route path="/watchlist" component={WatchList} />
             <Route path="/movie/:id" component={Detail} />
             <Redirect from="*" to="/" />
         </Switch>

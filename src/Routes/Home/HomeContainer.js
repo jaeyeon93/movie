@@ -1,15 +1,15 @@
 import React from 'react';
 import HomePresender from './HomePresenter';
 import {movieApi} from "../../api";
+import WishContext from '../../Components/WishContext';
 
-export default class extends React.Component {
+class HomeContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             upcoming: null,
             error: null,
             loading: true,
-            wish: [],
         };
     }
 
@@ -34,9 +34,15 @@ export default class extends React.Component {
     };
 
     render() {
-        const { upcoming, error, loading, wish } = this.state;
+        const { upcoming, error, loading } = this.state;
         return (
-            <HomePresender upcoming={upcoming} error={error} loading={loading} wish={wish} />
+            <>
+                <HomePresender upcoming={upcoming} error={error} loading={loading} />
+            </>
         );
     };
 }
+
+HomeContainer.contextType = WishContext;
+
+export default HomeContainer;

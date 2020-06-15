@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import WishContext from './WishContext';
 
 const Button = styled.button`
   margin-top: 2px;
@@ -15,14 +16,30 @@ const Button = styled.button`
 class Toggle extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {isToggleOn: true};
+        this.state = {isToggleOn: false};
         this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick() {
-        this.setState(state => ({
-            isToggleOn: !state.isToggleOn
-        }));
+        this.setState(state =>
+            ({isToggleOn: !state.isToggleOn
+            }), () => {
+            const movie = this.props.movie;
+            let watchList = this.context.watchList;
+            this.manageWishList(watchList, movie);
+        });
+    }
+
+    manageWishList(watchList, movie) {
+        if (this.state.isToggleOn && !watchList.includes(movie)) {
+            console.log(`${movie.original_title} added`);
+            watchList.push(movie);
+        } else if (!this.state.isToggleOn && watchList.includes(movie)) {
+            console.log(`delete ${movie.original_title}`);
+            const deleteIdx = watchList.indexOf(movie);
+            if (deleteIdx > -1)  {watchList.splice(deleteIdx, 1);}
+            console.log(`After delete length : ${watchList.length}`);
+        }
     }
 
     render() {
@@ -33,5 +50,7 @@ class Toggle extends React.Component {
         )
     }
 }
+
+Toggle.contextType = WishContext;
 
 export default Toggle;

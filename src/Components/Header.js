@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import styled from 'styled-components';
+
 const Header = styled.header`
     color:white;
     position: fixed;
@@ -23,7 +24,7 @@ const List = styled.ul`
 
 const Item = styled.li`
     width: 80px;
-    height: 50px
+    height: 50px;
     text-align: center;
     border-bottom: 5px solid ${props => (props.current ? "#3498db" : "transparent")};
     transition: border-bottom 0.5s ease-in-out;
@@ -41,9 +42,6 @@ export default withRouter(({location: {pathname}}) => (
         <List>
             <Item current={pathname === "/"}>
                 <SLink to="/">Home</SLink>
-            </Item>
-            <Item current={pathname === "/upcoming"}>
-                <SLink to="/upcoming">Upcoming</SLink>
             </Item>
             <Item current={pathname === "/watchlist"}>
                 <SLink to="/watchlist">Watch List</SLink>
