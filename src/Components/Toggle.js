@@ -46,8 +46,7 @@ class Toggle extends React.Component {
     render() {
         return (
             <Button onClick={this.handleClick}>
-                {this.context.watchList.includes(this.props.movie) ? 'Like' : 'UnLike'}
-                {/*{this.state.isToggleOn ? 'Like' : 'UnLike'}*/}
+                {this.state.isToggleOn ? 'Like' : 'UnLike'}
             </Button>
         )
     }

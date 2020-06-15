@@ -5,8 +5,7 @@ import WishContext from './WishContext';
 
 class App extends Component {
     state = {watchList: []};
-  render() {
-      console.log(`App에서 컨텍스트 ${JSON.stringify(this.context)}`)
+    render() {
     return (
         <>
         <WishContext.Provider value={this.state}>
