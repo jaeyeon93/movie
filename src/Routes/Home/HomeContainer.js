@@ -35,7 +35,6 @@ class HomeContainer extends React.Component {
 
     render() {
         const { upcoming, error, loading } = this.state;
-        console.log(`context on HomeContainer ${JSON.stringify(this.context)}`);
         return (
             <>
                 <HomePresender upcoming={upcoming} error={error} loading={loading} />

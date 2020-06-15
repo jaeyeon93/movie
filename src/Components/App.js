@@ -4,8 +4,9 @@ import GlobalStyles from './GlobalStyles';
 import WishContext from './WishContext';
 
 class App extends Component {
-    state = {wish: ['ab'], test: new Map()};
+    state = {watchList: []};
   render() {
+      console.log(`App에서 컨텍스트 ${JSON.stringify(this.context)}`)
     return (
         <>
         <WishContext.Provider value={this.state}>
@@ -16,5 +17,7 @@ class App extends Component {
     )
   }
 }
+
+App.contextType = WishContext;
 
 export default App;

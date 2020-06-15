@@ -44,11 +44,11 @@ export default withRouter(({location: {pathname}}) => (
             <Item current={pathname === "/"}>
                 <SLink to="/">Home</SLink>
             </Item>
-            <Item current={pathname === "/upcoming"}>
-                <SLink to="/upcoming">Upcoming</SLink>
-            </Item>
             <Item current={pathname === "/watchlist"}>
                 <SLink to="/watchlist">Watch List</SLink>
+            </Item>
+            <Item current={pathname === "/upcoming"}>
+                <SLink to="/upcoming">Upcoming</SLink>
             </Item>
         </List>
     </Header>

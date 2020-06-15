@@ -26,21 +26,28 @@ class Toggle extends React.Component {
             ({isToggleOn: !state.isToggleOn
             }), () => {
             const movie = this.props.movie;
-            if (this.state.isToggleOn && !this.context.wish.includes(movie.original_title)) {
-                this.context.wish.push(movie.original_title);
-                this.context.test.set(movie.id, movie.original_title);
-                console.log(`true일때 context : ${this.context.wish} map : ${this.context.test}`);
-            } else if (!this.state.isToggleOn && this.context.wish.includes(movie.original_title)) {
-                this.context.test.delete(movie.id);
-                console.log(`After delete : ${this.context.test}`);
-            }
+            let watchList = this.context.watchList;
+            this.manageWishList(watchList, movie);
         });
+    }
+
+    manageWishList(watchList, movie) {
+        if (this.state.isToggleOn && !watchList.includes(movie)) {
+            console.log(`${movie.original_title} added`);
+            watchList.push(movie);
+        } else if (!this.state.isToggleOn && watchList.includes(movie)) {
+            console.log(`delete ${movie.original_title}`);
+            const deleteIdx = watchList.indexOf(movie);
+            if (deleteIdx > -1)  {watchList.splice(deleteIdx, 1);}
+            console.log(`After delete length : ${watchList.length}`);
+        }
     }
 
     render() {
         return (
             <Button onClick={this.handleClick}>
-                {this.state.isToggleOn ? 'Like' : 'UnLike'}
+                {this.context.watchList.includes(this.props.movie) ? 'Like' : 'UnLike'}
+                {/*{this.state.isToggleOn ? 'Like' : 'UnLike'}*/}
             </Button>
         )
     }
